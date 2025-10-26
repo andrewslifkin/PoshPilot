@@ -1,0 +1,20 @@
+{
+  "name": "poshpilot",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@8.15.5",
+  "workspaces": [
+    "apps/web",
+    "services/worker"
+  ],
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @poshpilot/web dev"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "prettier": "3.2.5"
+  }
+}
