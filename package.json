@@ -1,0 +1,15 @@
+{
+  "name": "poshpilot-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @poshpilot/web run dev",
+    "build": "npm --workspace @poshpilot/web run build",
+    "start": "npm --workspace @poshpilot/web run start",
+    "lint": "npm --workspace @poshpilot/web run lint",
+    "test": "npm --workspace @poshpilot/web run test"
+  }
+}

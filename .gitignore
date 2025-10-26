@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+playwright-report
+blob-report
+coverage
+apps/web/test-results
+apps/web/.next
+apps/web/node_modules
+*.log
