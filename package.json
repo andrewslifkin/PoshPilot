@@ -1,0 +1,18 @@
+{
+  "name": "poshpilot",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "services/api",
+    "services/worker",
+    "packages/shared"
+  ],
+  "scripts": {
+    "build": "npm run build -w services/api && npm run build -w services/worker",
+    "start:api": "npm run start -w services/api",
+    "start:worker": "npm run start -w services/worker"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
