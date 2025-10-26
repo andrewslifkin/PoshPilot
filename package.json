@@ -1,0 +1,26 @@
+{
+  "name": "poshpilot",
+  "version": "0.1.0",
+  "description": "PoshPilot API and worker services with correlated logging, metrics, and rate limiting",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "worker": "node src/worker.js",
+    "dev": "nodemon src/app.js",
+    "lint": "eslint .",
+    "test": "echo 'No automated tests yet'"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pino": "^8.17.0",
+    "prom-client": "^15.1.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

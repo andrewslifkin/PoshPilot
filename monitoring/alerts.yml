@@ -1,0 +1,32 @@
+# Example Alertmanager rules for the PoshPilot share pipeline
+# Copy into your Prometheus/Alertmanager stack and adjust routing as needed.
+
+groups:
+  - name: poshpilot-share-pipeline
+    rules:
+      - alert: ShareJobFailureSpike
+        expr: increase(share_jobs_failure_total[5m]) > 10
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Share job failures exceeding threshold"
+          description: "{{ $value }} failures observed in the last 5 minutes. Investigate worker logs with correlation IDs."
+
+      - alert: ShareJobSuccessStall
+        expr: increase(share_jobs_success_total[10m]) == 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "No successful share jobs in 10 minutes"
+          description: "Pipeline may be stalled. Inspect /admin/dashboard for stuck jobs."
+
+      - alert: ShareJobLatencyDegradation
+        expr: histogram_quantile(0.95, rate(share_job_duration_seconds_bucket[10m])) > 5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Share job p95 latency degraded"
+          description: "p95 latency exceeds 5 seconds. Inspect downstream dependencies."
