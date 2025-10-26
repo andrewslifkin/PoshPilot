@@ -1,0 +1,15 @@
+{
+  "name": "poshpilot",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "build:web": "pnpm --filter web build",
+    "lint:web": "pnpm --filter web lint",
+    "prisma:migrate": "pnpm --filter db prisma migrate dev"
+  },
+  "packageManager": "pnpm@8.7.0"
+}
